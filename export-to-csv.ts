@@ -145,9 +145,9 @@ export class ExportToCsv {
         const useKeysAsHeaders = this._options.useKeysAsHeaders;
         let headers = useKeysAsHeaders ? Object.keys(this._data[0]) : this._options.headers;
 
-        if (headers.every((h: string|MappedHeaders) => typeof h === 'object')) {
+        if ((headers as any[]).every((h: string|MappedHeaders) => typeof h === 'object')) {
             this._isMappedHeaders = true;
-            headers = headers.map((h: MappedHeaders) => h.headerName);
+            headers = (headers as any[]).map((h: MappedHeaders) => h.headerName);
         }
 
         if (headers.length > 0) {
@@ -166,7 +166,7 @@ export class ExportToCsv {
     private _getBody() {
         let keys = Object.keys(this._data[0]);
         if (this._isMappedHeaders) {
-            keys = this._options.headers.map((h: MappedHeaders) => h.objectKey);
+            keys = (this._options.headers as any[]).map((h: MappedHeaders) => h.objectKey);
         }
 
         for (var i = 0; i < this._data.length; i++) {
