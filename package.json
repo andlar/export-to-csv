@@ -9,7 +9,7 @@
     "scripts": {
         "dev": "tsc --watch",
         "test": "tsc && karma start",
-        "prepublishOnly": "tsc"
+        "prepare": "tsc"
     },
     "keywords": [
         "export-to-csv",
@@ -35,7 +35,7 @@
     "types": "./build/export-to-csv.d.ts",
     "homepage": "https://github.com/andlar/export-to-csv#readme",
     "devDependencies": {
-        "@types/jasmine": "^2.5.46",
+        "@types/jasmine": "2.5.46",
         "es6-shim": "^0.35.3",
         "jasmine-core": "^2.4.1",
         "karma": "^1.5.0",
